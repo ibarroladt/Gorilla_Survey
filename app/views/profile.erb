@@ -1,0 +1,21 @@
+<div class="container">
+  <h1><%= @email %></h1>
+
+  <form action="/survey/create" method="post">
+    <label>Title: <input type="text" name="title" required="required"></label>
+    <input type="submit" value="Create Survey">
+  </form>
+  
+  <p><%= @email %>'s Surveys:</p>
+  <table>
+    <tr>
+      <td>Title</td>
+    </tr>
+  <% @surveys.each do |survey| %>
+    <tr>
+    <td><%= survey %><td> <!-- survey.title -->
+    </tr>
+  <% end %>
+  </table>
+</div>
+
