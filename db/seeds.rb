@@ -12,7 +12,7 @@ end
 end
 
 50.times do
-  Question.create(question: Faker::Lorem.words(num=3), survey_id: rand(1..20))
+  Question.create(question: Faker::Lorem.sentence(3), survey_id: rand(1..20))
 end
 
 150.times do 

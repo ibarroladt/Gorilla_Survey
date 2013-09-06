@@ -1,0 +1,26 @@
+<div class="container">
+  <h1><%= @question.question %></h1>
+  <h4><%= current_user.email %></h4>
+
+
+  <form action="/survey/<%= @question.survey.id %>/question/<%= @question.id %>/choice/create" method="post">
+    <label>Choice: <input type="text" name="choice" required="required"></label>
+    <input type="submit" value="Create Choice">
+  </form>
+  
+  <p>Question choices:</p>
+  <table>
+    <tr>
+      <td>Choice</td>
+    </tr>
+  <% @question.choices.each do |choice| %>
+    <tr>
+    <td><%= choice.choice %><td>
+    </tr>
+  <% end %>
+  </table>
+
+  <form action="/survey/<%= @question.survey.id %>/create" method="get">
+    <input type="submit" value="Done">
+  </form>
+</div>

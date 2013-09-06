@@ -15,7 +15,7 @@ post '/login' do
 
   if @user
     session[:user_id] = @user.id
-    redirect ("/user/#{@user.id}")
+    redirect "/user/profile"
   else
     @error = "ERROR: User validation failed, check your password or log in"
     erb :index
@@ -26,8 +26,8 @@ post '/register' do
   begin
     user = User.create(params[:register])
     session[:user_id] = user.id
-    redirect ("/user/#{user.id}")
-  rescue
+    redirect "/user/profile"
+   rescue
     @error = "ERROR: User creation failed, please try again"
     erb :index
   end
