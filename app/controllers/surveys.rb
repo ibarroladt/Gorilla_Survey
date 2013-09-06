@@ -14,5 +14,5 @@ post '/survey/create' do
   title = params[:title]
   survey = Survey.create(title: title)
   current_user.surveys << survey
-  redirect ("/survey/#{survey.id}/create")
+  redirect "/survey/#{survey.id}/create"
 end
