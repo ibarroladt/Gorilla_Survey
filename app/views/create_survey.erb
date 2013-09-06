@@ -3,7 +3,7 @@
   <h4><%= current_user.email %></h4>
 
 
-  <form action="/question/create" method="post">
+  <form action="/survey/<%= @survey.id %>/question/create" method="post">
     <label>Question: <input type="text" name="question" required="required"></label>
     <input type="submit" value="Create Question">
   </form>
