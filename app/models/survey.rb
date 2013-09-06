@@ -6,4 +6,14 @@ class Survey < ActiveRecord::Base
   has_many :responses, through: :participations
 
   has_many :questions
+  
+  validates_uniqueness_of :secret_key
+
+  def self.make_secret_key
+    letters_numbers = ("A".."Z").to_a + ("a".."z").to_a + ("1".."9").to_a
+    key = ''
+    16.times { key << letters_numbers.sample }
+    key
+  end
+
 end
