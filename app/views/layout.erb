@@ -18,6 +18,18 @@
   <title></title>
 </head>
 <body>
+
+  <nav>
+    <h1>SurveyGORILLA</h1>
+    
+    <%if session[:user_id]%>
+      <a href="/user/profile"><%=current_user.email%> </a>
+      <a href="/logout">: Log Out</a>
+      <% else %>
+
+    <% end %>
+  </nav>
+
   <%= yield %>
 </body>
 </html>

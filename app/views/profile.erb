@@ -13,7 +13,7 @@
     </tr>
   <% @surveys.each do |survey| %>
     <tr>
-    <td><%= survey.title %><td> <!-- survey.title -->
+    <td><a href=<%="/survey/#{survey.id}"%>><%= survey.title %></a><td> <!-- survey.title -->
     </tr>
   <% end %>
   </table>

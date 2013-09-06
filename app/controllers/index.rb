@@ -3,6 +3,11 @@ get '/' do
   erb :index
 end
 
+get '/logout' do
+session.clear
+redirect ("/")
+end
+
 
 #POSTS====================================
 
