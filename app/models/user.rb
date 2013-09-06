@@ -1,5 +1,10 @@
 class User < ActiveRecord::Base
-  has_many :surveys
+  has_many :authored_surveys, class_name: "Survey"
+  
+  has_many :participations 
+  has_many :surveys, through: :participations
+  has_many :responses, through: :participations
+
   validates :email, uniqueness: true
   
   include BCrypt
@@ -20,3 +25,4 @@ class User < ActiveRecord::Base
     nil
   end
 end
+
