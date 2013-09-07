@@ -4,9 +4,9 @@
 		<input type="submit" value="Update Question">
 	</form>
 
-	<form action="/">
+	<form action="/choices/update" method="post">
 		<%@question.choices.each do |choice| %>
-			<input type="text" name=<%= @question.id %> value=<%=choice.choice %> >
+			<input type="text" name=<%= "update[#{choice.id}]" %> value=<%=choice.choice %> >
 			<a href="/choice/<%= choice.id %>/delete">Delete</a><br>
 		<% end %>
 		<input type="submit" value="Update Choices">

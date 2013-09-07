@@ -60,3 +60,12 @@ post '/survey/:survey_id/question/:question_id/choice/add' do
   question.choices << choice 
   redirect "/survey/#{question.survey.id}/question/#{question.id}/edit"
 end
+
+post '/choices/update' do
+  p params
+  params[:update].each do |choice_id, choice|
+    @choice = Choice.find(choice_id)
+    @choice.update_attributes(choice: choice)
+  end
+  redirect "/survey/#{@choice.question.survey.id}/question/#{@choice.question.id}/edit"
+end
