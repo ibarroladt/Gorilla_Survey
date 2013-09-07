@@ -82,7 +82,9 @@ nav .login {
 
 /***************SEAN *****************************/
 
-
+.results ul {
+  list-style-type: none;
+}
 
 
 
