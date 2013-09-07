@@ -1,7 +1,7 @@
 <div class="container">
   <h1><%= @survey.title %></h1>
   
-  <% if current_user %>
+  <% if session[:user_id] %>
     <h5><%= current_user.email %></h5>
   <% end %>
 
