@@ -1,9 +1,9 @@
 .container {
   margin: 20px auto;
-  width: 600px;
+  width: 800px;
   padding: 0px 20px 20px 20px;
-  border: 1px dotted black;
 }
+
 th {
   text-align: left;
 }
@@ -209,3 +209,22 @@ nav .login {
 
 
 /*********************** BRIAN *************************/
+
+.user-info {
+  float:right;
+  margin: 10px 10px 0 0;
+}
+
+.current-user-email {
+  text-decoration: none;
+  color: white;
+}
+
+
+.logout input {
+  border:none;
+  background-color:#EF8A62;
+  float:right;
+  color:#F8F3F8;
+}
+
