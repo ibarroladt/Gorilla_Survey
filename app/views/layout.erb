@@ -25,8 +25,13 @@
   
 
     <%if session[:user_id]%>
-      <a href="/user/profile"><%=current_user.email%> </a>
-      <a href="/logout">: Log Out</a>
+      <div class="user-info">
+         <a class="current-user-email" href="/user/profile"><%=current_user.email%> </a>
+        <form  class="logout" action="/logout">
+          <input type="submit" value="Log Out">
+        </form>
+      </div>
+     
       <% else %>
         <form class="login" action='/login' method="POST">
           <label> <input type="email" name="email" required="required" placeholder="Email"></label>
@@ -35,7 +40,8 @@
         </form>
     <% end %>
   </nav>
-
-  <%= yield %>
+  <div class="container">
+    <%= yield %>
+  </div>
 </body>
 </html>
