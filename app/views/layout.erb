@@ -20,13 +20,19 @@
 <body>
 
   <nav>
-    <h1>SurveyGORILLA</h1>
+    <h1>SurveyAnimal</h1>
     
+  
+
     <%if session[:user_id]%>
       <a href="/user/profile"><%=current_user.email%> </a>
       <a href="/logout">: Log Out</a>
       <% else %>
-
+        <form class="login" action='/login' method="POST">
+          <label> <input type="email" name="email" required="required" placeholder="Email"></label>
+          <label> <input type="password" name="password" required="required" placeholder="Password"></label>
+          <input class="button" type="submit" value="Log In">
+        </form>
     <% end %>
   </nav>
 
