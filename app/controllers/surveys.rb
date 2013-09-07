@@ -23,13 +23,6 @@ get '/survey/:id/user' do
   erb :survey_user
 end
 
-get '/survey/:id/results' do
-  @survey = Survey.find(params[:id])
-  @total_takers = Participation.where(survey_id: params[:id]).count
-  @total_completed = Participation.where(survey_id: params[:id], completion: true).count / @total_takers
-  erb :results
-end
-
 
 get '/survey/take/:secret_key' do
   @survey = Survey.where(secret_key: params[:secret_key]).first
@@ -50,7 +43,7 @@ post '/survey/create' do
   survey = Survey.create(title: title)
   key = Survey.make_secret_key
   survey.update_attributes(:secret_key => key)
-  current_user.surveys << survey
+  current_user.authored_surveys << survey
   redirect "/survey/#{survey.id}/create"
 end
 

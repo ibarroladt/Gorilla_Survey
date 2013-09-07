@@ -1,8 +1,9 @@
 <div class="container">
   <h1><%= @survey.title %></h1>
-  <h3>Total Survey Takers : <%= @total_takers %></h3>
-  <h3>Total Completed : <%= @total_completed %></h3>
-  <h5><%= current_user.email %></h5>
+  <h3>Total Survey Takers : <%= @survey.survey_takers.count %></h3></h3>
+  <% if current_user %>
+    <h5><%= current_user.email %></h5>
+  <% end %>
   
 
   <form>
