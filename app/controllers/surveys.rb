@@ -29,6 +29,11 @@ get '/survey/take/:secret_key' do
 
 end
 
+get '/survey/:id/secret_key' do
+  @survey = Survey.find(params[:id])
+  erb :secret_key
+end
+
 get '/survey/:id' do
   @survey = Survey.find(params[:id])
 
@@ -42,21 +47,23 @@ post '/survey/create' do
   survey = Survey.create(title: title)
   key = Survey.make_secret_key
   survey.update_attributes(:secret_key => key)
-  current_user.surveys << survey
+  current_user.authored_surveys << survey
   redirect "/survey/#{survey.id}/create"
 end
 
 post '/survey/submit' do
-  survey = Survey.find(params[:survey_id].to_i)
+  survey = Survey.find(params[:survey_id])
   responses = params[:response]
   
-  participation = current_user.participations.create(survey_id: survey.id, completion: survey.complete?(responses))
 
   if current_user
+    participation = current_user.participations.create(survey_id: survey.id, completion: survey.complete?(responses))
+    
     responses.each do |question_id, choice_id|
       Response.create(choice_id: choice_id, participation_id: participation.id)
     end
   else 
+    participation = Participation.create(survey_id: survey.id, completion: survey.complete?(responses))
     responses.each do |question_id, choice_id|
       Response.create(choice_id: choice_id)
     end
