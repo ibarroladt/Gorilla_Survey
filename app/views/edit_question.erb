@@ -3,4 +3,21 @@
 		<input type="text" name="question" value="<%= @question.question %>">
 		<input type="submit" value="Update Question">
 	</form>
+
+	<form action="/">
+		<%@question.choices.each do |choice| %>
+			<input type="text" name=<%= @question.id %> value=<%=choice.choice %> >
+			<a href="/choice/<%= choice.id %>/delete">Delete</a><br>
+		<% end %>
+		<input type="submit" value="Update Choices">
+	</form>
+
+	 <form action="/survey/<%= @question.survey.id %>/question/<%= @question.id %>/choice/add" method="post">
+    <input type="text" name="choice" required="required">
+    <input type="submit" value="Add Choice">
+  </form>
+
+  <form action="/survey/<%= @question.survey.id %>/edit" method="get">
+    <input type="submit" value="Done">
+  </form>
 </div>

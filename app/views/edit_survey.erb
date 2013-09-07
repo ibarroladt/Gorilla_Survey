@@ -13,6 +13,11 @@
     <%end  %>
   </form>
 
+  <form action="/survey/<%= @survey.id %>/question/add" method="post">
+    <input type="text" name="question" required="required">
+    <input type="submit" value="Add Question">
+  </form>
+
   <form action="/user/profile" method="get">
     <input type="submit" value="Back to Profile">
   </form>
