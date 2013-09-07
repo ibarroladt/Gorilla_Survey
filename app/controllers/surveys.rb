@@ -5,6 +5,18 @@ get '/survey/:id/create' do
   erb :create_survey
 end
 
+get '/survey/:id/delete' do
+  @survey = Survey.find(params[:id])
+  @survey.destroy 
+  redirect '/user/profile'
+end
+
+get '/survey/:id/edit' do
+	@survey = Survey.find(params[:id])
+
+	erb :edit_survey
+end
+
 get '/survey/:id/user' do
   @survey = Survey.find(params[:id])
   
@@ -14,6 +26,7 @@ end
 get '/survey/take/:secret_key' do
   @survey = Survey.where(secret_key: params[:secret_key]).first
   erb :take_survey
+
 end
 
 get '/survey/:id' do
@@ -21,10 +34,6 @@ get '/survey/:id' do
 
   erb :survey
 end
-
-
-
-
 
 # POSTS =================================
 
@@ -54,4 +63,5 @@ post '/survey/submit' do
   
   erb :thank_you
 end
+
 
