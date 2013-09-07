@@ -11,9 +11,8 @@ get '/survey/:id' do
   erb :survey
 end
 
-get '/secret_key' do
-  # @survey = Survey.where(secret_key: params[:secret_key])
-  @survey = Survey.last
+get '/survey/take/:secret_key' do
+  @survey = Survey.where(secret_key: params[:secret_key])
   erb :take_survey
 end
 
@@ -37,7 +36,5 @@ post '/survey/submit' do
   @responses.each do |question_id, choice_id|
     Response.create(choice_id: choice_id, participation_id: @participation.id)
   end
-
 end
 
-# user.participations.where(survey_id ==?)
