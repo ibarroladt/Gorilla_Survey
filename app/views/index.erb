@@ -1,17 +1,12 @@
-<div class="container">
+
   <p><%= @error %></p>
 
-  <form action='/login' method="POST">
-    <p>Log In</p>
-    <label>Email: <input type="email" name="email" required="required"></label><br>
-    <label>Password: <input type="password" name="password" required="required"></label><br>
-    <input type="submit" value="Log In">
+ 
+
+  <form class="register" action='/register' method="POST">
+
+    <label> <input type="email" placeholder="Email" name="register[email]" required="required"></label><br>
+    <label><input type="password" placeholder="Password" name="register[password]" required="required"></label><br>
+    <input class="button_register" type="submit" value="Register">
   </form>
 
-  <form action='/register' method="POST">
-    <p>Register</p>
-    <label>Email: <input type="email" name="register[email]" required="required"></label><br>
-    <label>Password: <input type="password" name="register[password]" required="required"></label><br>
-    <input type="submit" value="Register">
-  </form>
-</div>
