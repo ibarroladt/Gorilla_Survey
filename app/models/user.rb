@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   has_many :participations 
   has_many :surveys, through: :participations
   has_many :responses, through: :participations
+  has_many :choices, through: :responses
   
   validates :email, uniqueness: true
   
