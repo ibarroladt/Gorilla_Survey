@@ -8,11 +8,8 @@
     <input type="submit" value="Create Question">
   </form>
   
-  <p>Surveys questions:</p>
+  <p>Survey questions:</p>
   <table>
-    <tr>
-      <td>Question</td>
-    </tr>
   <% @survey.questions.each do |question| %>
     <tr>
     <td><%= question.question %><td>
