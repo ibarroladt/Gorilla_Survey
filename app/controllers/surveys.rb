@@ -47,20 +47,21 @@ post '/survey/create' do
 end
 
 post '/survey/submit' do
-  @survey = Survey.find(params[:survey_id].to_i)
-  @participation = current_user.participations.where(survey_id: @survey.id).first
-  @responses = params[:response]
+  survey = Survey.find(params[:survey_id].to_i)
+  responses = params[:response]
+  
+  participation = current_user.participations.create(survey_id: survey.id, completion: survey.complete?(responses))
 
   if current_user
-    @responses.each do |question_id, choice_id|
-      Response.create(choice_id: choice_id, participation_id: @participation.id)
+    responses.each do |question_id, choice_id|
+      Response.create(choice_id: choice_id, participation_id: participation.id)
     end
   else 
-    @responses.each do |question_id, choice_id|
+    responses.each do |question_id, choice_id|
       Response.create(choice_id: choice_id)
     end
   end
-  
+
   erb :thank_you
 end
 
