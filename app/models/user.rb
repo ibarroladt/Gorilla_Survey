@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   has_many :participations 
   has_many :surveys, through: :participations
   has_many :responses, through: :participations
-
+  
   validates :email, uniqueness: true
   
   include BCrypt
