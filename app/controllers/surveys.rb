@@ -5,16 +5,25 @@ get '/survey/:id/create' do
   erb :create_survey
 end
 
-get '/survey/:id' do
+get '/survey/:id/user' do
   @survey = Survey.find(params[:id])
-
-  erb :survey
+  
+  erb :survey_user
 end
 
 get '/survey/take/:secret_key' do
   @survey = Survey.where(secret_key: params[:secret_key])
   erb :take_survey
 end
+
+get '/survey/:id' do
+  @survey = Survey.find(params[:id])
+
+  erb :survey
+end
+
+
+
 
 
 # POSTS =================================
