@@ -1,0 +1,20 @@
+<div class="container">
+  <h1><%= @survey.title %></h1>
+  
+  <% if session[:user_id] %>
+    <h5><%= current_user.email %></h5>
+  <% end %>
+
+<form action="/survey/submit" method="POST">
+  <% @survey.questions.each do |question| %>
+      <h4><%= question.question %></h4>
+      <%question.choices.each do |choice| %>
+        <input type="radio" name=response[<%= question.id %>] value=<%=choice.id %> ><%=choice.choice %></input><br>
+      <% end %>
+  <% end %>
+  <input type="hidden" name="survey_id" value="<%= @survey.id %>">
+  <input type="submit" value="Submit Responses!">
+</form>
+
+</div>
+
