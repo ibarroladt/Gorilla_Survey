@@ -23,6 +23,7 @@ get '/survey/:id/user' do
   erb :survey_user
 end
 
+
 get '/survey/take/:secret_key' do
   @survey = Survey.where(secret_key: params[:secret_key]).first
   erb :take_survey
