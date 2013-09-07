@@ -16,4 +16,8 @@ class Survey < ActiveRecord::Base
     key
   end
 
+  def complete?(response_hash)
+    self.questions.length == response_hash.length
+  end
+
 end
