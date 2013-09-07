@@ -8,9 +8,204 @@ th {
   text-align: left;
 }
 
-.editq {
+
+/******** LAYOUT ***************************************************/
+
+body {
+  background-color: #E7E7E7;
+}
+nav {
+  height: 60px;
+  /*background-color: #1b4a6c;*/
+  background-color: black;
+}
+
+nav h1 {
+  margin: 0 auto;
+  color:white;
+  float:left;
+}
+
+nav .login {
+  width: auto;
+  float: right;
+  margin: 10px 20px 0 0;
+}
+
+.login input, p {
+  display:inline;
+}
+
+.login .button {
+  border:none;
+  background-color:#9AC770; 
+  color:#F8F3F8;
+
+}
+
+.edit {
 	margin-bottom: 30px;
 	background-color: #ddd;
 	padding: 10px;
 	width: 
 }
+
+/**************INDEX***************************/
+.register {
+  width: 225px;
+  margin: 0 auto;
+  margin-top: 85px;
+ /* border: solid 1px black;*/
+  padding: 20px 40px;
+  background-color: #DADADA;
+
+}
+
+.register input {
+  margin: 5px auto;
+  height: 30px;
+  width: 225px;
+  border: 0px;
+  padding: 0px;
+  padding-left: 3px;
+}
+
+.button_register {
+  border: none;
+  width:225px;
+  margin: auto;
+  background-color: #9AC770;
+  color:#F8F3F8;
+}
+
+
+
+/***************SEAN *****************************/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*********************** JAVIER *************************/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*********************** BRIAN *************************/
