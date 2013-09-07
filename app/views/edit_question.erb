@@ -1,0 +1,6 @@
+<div class="container">
+	<form action="/survey/<%= @question.survey.id %>/question/<%= @question.id %>/update" method="post">
+		<input type="text" name="question" value="<%= @question.question %>">
+		<input type="submit" value="Update Question">
+	</form>
+</div>
