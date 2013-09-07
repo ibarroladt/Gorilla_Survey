@@ -6,26 +6,28 @@
     <input type="submit" value="Create Survey">
   </form>
   
-  <p><%= @email %>'s Surveys:</p>
+  <p>Authored Surveys:</p>
   <table>
     <tr>
       <td>Title</td>
+      <td>URL</td>
     </tr>
   <% @authored_surveys.each do |survey| %>
     <tr>
-    <td><a href=<%="/survey/#{survey.id}"%>><%= survey.title %></a><td> <!-- survey.title -->
+    <td><a href=<%="/survey/#{survey.id}"%>><%=survey.title%></a><td>
+    <td><a href=<%="/survey/#{survey.id}/secret_key"%>>URL</a><td>
     </tr>
   <% end %>
   </table>
 
-  <p><%= @email %>'s Surveys:</p>
+  <p>Taked Surveys:</p>
   <table>
     <tr>
       <td>Title</td>
     </tr>
   <% @taken_surveys.each do |survey| %>
     <tr>
-    <td><a href=<%="/survey/#{survey.id}"%>><%= survey.title %></a><td> <!-- survey.title -->
+    <td><a href=<%="/survey/#{survey.id}/user"%>><%= survey.title %></a><td> <!-- survey.title -->
     </tr>
   <% end %>
   </table>
