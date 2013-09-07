@@ -35,11 +35,20 @@ get '/survey/:id/secret_key' do
   erb :secret_key
 end
 
+get '/survey/:id/results' do
+  @survey = Survey.find(params[:id])
+  @participants = Participation.where(survey_id: params[:id]).count
+  @completed_count = Participation.where(survey_id: params[:id], completion: true).count
+
+  erb :results
+end
+
 get '/survey/:id' do
   @survey = Survey.find(params[:id])
 
   erb :survey
 end
+
 
 # POSTS =================================
 
