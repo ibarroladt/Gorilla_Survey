@@ -12,7 +12,7 @@ get '/survey/:id/user' do
 end
 
 get '/survey/take/:secret_key' do
-  @survey = Survey.where(secret_key: params[:secret_key])
+  @survey = Survey.where(secret_key: params[:secret_key]).first
   erb :take_survey
 end
 
@@ -42,8 +42,16 @@ post '/survey/submit' do
   @participation = current_user.participations.where(survey_id: @survey.id).first
   @responses = params[:response]
 
-  @responses.each do |question_id, choice_id|
-    Response.create(choice_id: choice_id, participation_id: @participation.id)
+  if current_user
+    @responses.each do |question_id, choice_id|
+      Response.create(choice_id: choice_id, participation_id: @participation.id)
+    end
+  else 
+    @responses.each do |question_id, choice_id|
+      Response.create(choice_id: choice_id)
+    end
   end
+  
+  erb :thank_you
 end
 
