@@ -23,6 +23,8 @@ end
 post '/survey/create' do
   title = params[:title]
   survey = Survey.create(title: title)
+  key = Survey.make_secret_key
+  survey.update_attributes(:secret_key => key)
   current_user.surveys << survey
   redirect "/survey/#{survey.id}/create"
 end
