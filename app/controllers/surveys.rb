@@ -11,7 +11,11 @@ get '/survey/:id' do
   erb :survey
 end
 
-
+get '/survey/:id/user' do
+  @survey = Survey.find(params[:id])
+  
+  erb :survey_user
+end
 # POSTS =================================
 
 post '/survey/create' do
