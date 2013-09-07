@@ -5,12 +5,21 @@ get '/survey/:id/create' do
   erb :create_survey
 end
 
+get '/survey/:id/delete' do
+  @survey = Survey.find(params[:id])
+  @survey.destroy 
+  redirect '/user/profile'
+end
+
+get '/survey/:id/edit' do
+	@survey = Survey.find(params[:id])
+end
+
 get '/survey/:id' do
   @survey = Survey.find(params[:id])
 
   erb :survey
 end
-
 
 # POSTS =================================
 
