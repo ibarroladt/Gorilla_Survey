@@ -3,8 +3,8 @@
 
 
     <%@survey.questions.each do |question| %>
-      <p><%= question.question %></p>
-            <li><%=current_user.choices.where(question_id: question.id).first.choice%></li>
+      <li class="black"><p><%= question.question %></p></li>
+            <li class="white"><p><%=current_user.choices.where(question_id: question.id).first.choice%><p></li>
     <%end%>
 
 
