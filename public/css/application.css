@@ -84,17 +84,16 @@ nav .login {
 
 .results #totals {
   background-color: black;
-  /*color: #9AC770;*/
-  color: white;
-  font-size: 1.25em;
+  color: #9AC770;
+  font-weight: bold;
   height: 30px;
-  padding-left: 4px
+  padding-left: 80px;
+  box-shadow: 5px 5px 5px #888888;
 }
 
 #totals li {
   display: inline;
   margin-top: 0px;
-  /*width: 100px;*/
   padding-right: 20px;
 }
 
@@ -103,15 +102,63 @@ nav .login {
   width: 750px;
   float: left;
   padding: 0px;
-  padding-top: 5px;
+  padding-top: 6px;
   margin: 0px;
 }
 
+.results .button {
+  box-shadow: 5px 5px 5px #888888;
+}
 
+.secret_key {
+  background-color: black;
+  color: #9AC770;
+  font-weight: bold;
+  height: 26px;
+  padding-top: 9px;
+  padding-left: 45px;
+  box-shadow: 5px 5px 5px #888888;  
+}
 
+.secret_key .button {
+  width: 165px;
+  float: right;
+  margin-top: -21px;
+  margin-right: 60px;
+  padding-left: 20px;
+  padding-right: 20px;
 
+}
 
+.secret_key ul {
+  list-style-type: none;
+  margin-top: 0px;
+}
 
+.thank_you {
+  font-weight: bold;
+}
+
+.survey ul {
+  list-style-type: none;
+  
+}
+
+.survey .button {
+  margin-top: 17px;
+}
+
+#delete-edit {
+  height: 24px;
+  margin-top: 18px;
+}
+
+.survey .survey-delete, .survey-edit {
+  color: black;
+  text-decoration: none;
+  height: 30px;
+  padding-right: 20px;
+}
 
 
 
