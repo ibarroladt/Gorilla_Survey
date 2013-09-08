@@ -1,9 +1,9 @@
 .container {
   margin: 20px auto;
-  width: 600px;
+  width: 800px;
   padding: 0px 20px 20px 20px;
-  border: 1px dotted black;
 }
+
 th {
   text-align: left;
 }
@@ -82,8 +82,29 @@ nav .login {
 
 /***************SEAN *****************************/
 
+.results #totals {
+  background-color: black;
+  /*color: #9AC770;*/
+  color: white;
+  font-size: 1.25em;
+  height: 30px;
+  padding-left: 4px
+}
+
+#totals li {
+  display: inline;
+  margin-top: 0px;
+  /*width: 100px;*/
+  padding-right: 20px;
+}
+
 .results ul {
   list-style-type: none;
+  width: 750px;
+  float: left;
+  padding: 0px;
+  padding-top: 5px;
+  margin: 0px;
 }
 
 
@@ -211,3 +232,22 @@ nav .login {
 
 
 /*********************** BRIAN *************************/
+
+.user-info {
+  float:right;
+  margin: 10px 10px 0 0;
+}
+
+.current-user-email {
+  text-decoration: none;
+  color: white;
+}
+
+
+.logout input {
+  border:none;
+  background-color:#EF8A62;
+  float:right;
+  color:#F8F3F8;
+}
+
