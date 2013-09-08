@@ -1,26 +1,21 @@
-<div class="container">
-  <h1><%= @question.question %></h1>
-  <h4><%= current_user.email %></h4>
+<h1><%= @question.question %></h1>
 
+<form class="choice-form" action="/survey/<%= @question.survey.id %>/question/<%= @question.id %>/choice/create" method="post">
+  <label><input class="choice-field" type="text" name="choice" required="required"></label>
+  <input class="button" type="submit" value="Create Choice">
+</form>
 
-  <form action="/survey/<%= @question.survey.id %>/question/<%= @question.id %>/choice/create" method="post">
-    <label>Choice: <input type="text" name="choice" required="required"></label>
-    <input type="submit" value="Create Choice">
-  </form>
-  
-  <p>Question choices:</p>
-  <table>
-    <tr>
-      <td>Choice</td>
-    </tr>
+<h3>Question choices:</h3>
+
+<ol type="a">
   <% @question.choices.each do |choice| %>
-    <tr>
-    <td><%= choice.choice %><td>
-    </tr>
+    <li><%= choice.choice %></li>
   <% end %>
-  </table>
+</ol>
 
-  <form action="/survey/<%= @question.survey.id %>/create" method="get">
-    <input type="submit" value="Done">
-  </form>
-</div>
+</table>
+
+<form class="choice-submit" action="/survey/<%= @question.survey.id %>/create" method="get">
+  <input class="button" type="submit" value="Done">
+</form>
+
