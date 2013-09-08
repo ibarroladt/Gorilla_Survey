@@ -1,30 +1,27 @@
-<div class="container">
-  <h1><%= @survey.title %></h1>
-  <h5><%= current_user.email %></h5>
 
-  <form>
-    <% @survey.questions.each do |question| %>
-      <h4><%= question.question %></h4>
-      <%question.choices.each do |choice| %>
-        <input type="radio" name=<%= question.id %> value=<%=choice.choice %> ><%=choice.choice %></input><br>
-      <%end  %>
-      <a href="/survey/<%= @survey.id %>/question/<%= question.id %>/delete">Delete</a>
-      <a href="/survey/<%= @survey.id %>/question/<%= question.id %>/edit">Edit</a>
+<h1>Edit <%= @survey.title %></h1>
+<h5><%= current_user.email %></h5>
+
+<form>
+  <% @survey.questions.each do |question| %>
+    <h4><%= question.question %></h4>
+    <%question.choices.each do |choice| %>
+      <input type="radio" name=<%= question.id %> value=<%=choice.choice %> ><%=choice.choice %></input><br>
     <%end  %>
-  </form>
+    <a class="delete" href="/survey/<%= @survey.id %>/question/<%= question.id %>/delete">Delete</a>
+    <a href="/survey/<%= @survey.id %>/question/<%= question.id %>/edit">Edit</a>
+  <%end  %>
+</form>
 
-  <form action="/survey/<%= @survey.id %>/question/add" method="post">
-    <input type="text" name="question" required="required">
-    <input type="submit" value="Add Question">
-  </form>
+<form action="/survey/<%= @survey.id %>/question/add" method="post">
+  <input type="text" name="question" required="required">
+  <input type="submit" value="Add Question">
+</form>
 
-  <form action="/user/profile" method="get">
-    <input type="submit" value="Back to Profile">
-  </form>
+<form action="/user/profile" method="get">
+  <input type="submit" value="Back to Profile">
+</form>
 
-  <a href="/survey/<%= @survey.id %>/delete">Delete This Survey</a>
-  <% if @survey.responses.empty? %>
-  <a href="/survey/<%= @survey.id %>/edit">Edit This Survey</a>
-  <% end %>
-</div>
+<a class="delete" href="/survey/<%= @survey.id %>/delete">Delete This Survey</a>
+
 
