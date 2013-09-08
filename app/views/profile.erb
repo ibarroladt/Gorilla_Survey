@@ -6,13 +6,13 @@
     <input class="button" type="submit" value="Create Survey">
   </form>
   
-  <p>Authored Surveys:</p>
+  <h3>Authored Surveys:</h3>
   <table>
-    <th>
-      <td>Title</td>
-      <td>URL</td>
-      <td>Stats</td>
-    </th>
+    <tr>
+      <th>Title</th>
+      <th>URL</th>
+      <th>Stats</th>
+    </tr>
   <% @authored_surveys.each do |survey| %>
     <tr>
       <td><a href=<%="/survey/#{survey.id}"%>><%=survey.title%></a></td>
@@ -22,10 +22,10 @@
   <% end %>
   </table>
 
-  <p>Taked Surveys:</p>
+  <h3>Taked Surveys:</h3>
   <table>
     <tr>
-      <td>Title</td>
+      <th>Title</th>
     </tr>
   <% @taken_surveys.each do |survey| %>
     <tr>
