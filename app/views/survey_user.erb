@@ -1,15 +1,14 @@
-<div class="container">
+<div class="survey_user">
   <h1><%= @survey.title %></h1>
-  <h5><%= current_user.email %></h5>
 
-<form>
+
     <%@survey.questions.each do |question| %>
-      <h4><%= question.question %></h4>
+      <p><%= question.question %></p>
             <li><%=current_user.choices.where(question_id: question.id).first.choice%></li>
     <%end%>
-</form>
+
 
   <form action="/user/profile" method="get">
-    <input type="submit" value="Back to Profile">
+    <input class="button" type="submit" value="Back to Profile">
   </form>
 </div>

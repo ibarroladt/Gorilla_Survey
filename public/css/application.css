@@ -140,20 +140,102 @@ nav .login {
 /*********************** JAVIER *************************/
 
 
+.profile input {
+  margin: 5px auto;
+  height: 30px;
+  width: 400px;
+  border: 0px;
+  padding: 0px;
+  padding-left: 3px;
+  box-shadow: 5px 5px 5px #888888;
+}
 
 
+.profile .button {
+  width: 200px;
+  border:none;
+  background-color:#9AC770; 
+  color:#F8F3F8;
+}
+
+.profile h3 {
+  margin:30px 0;
+}
+
+.profile form {
+  margin-left:auto;
+  margin-right:auto;
+  width: 620px;
+}
+
+.profile table {
+  margin-left:auto;
+  margin-right:auto;
+  width: 620px;
+  box-shadow: 5px 5px 5px #888888;
+
+}
+
+.profile a {
+  color: black;
+  text-decoration: none;
+}
+
+.profile th {
+  background-color: black;
+  color:#9AC770;
+  height: 30px;
+  padding-left: 6px;
+}
+
+.profile tr {
+  height: 30px;
+}
+
+.profile td {
+ padding-left: 6px;
+}
+
+.profile tr:nth-child(even) {
+  background-color: white;
+
+}
+.profile tr:nth-child(odd) {
+  background-color: #bdbdbd;
+
+}
 
 
+# Survey User ====================================================
 
+.survey_user form {
+  margin-left:auto;
+  margin-right:auto;
+}
 
+.survey_user input {
+  margin: 5px auto;
+  height: 30px;
+  width: 600px;
+  border: 0px;
+  padding: 0px;
+  padding-left: 3px;
+  box-shadow: 5px 5px 5px #888888;
+}
 
+.survey_user .button {
+  width: 600px;
+  border:none;
+  background-color:#9AC770; 
+  color:#F8F3F8;
+}
 
+.survey_user p {
+  background-color: #bdbdbd;
+  height: 30px; 
+  padding-left: 6px; 
 
-
-
-
-
-
+}
 
 
 

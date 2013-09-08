@@ -1,17 +1,17 @@
-<div class="container">
+<div class="profile">
   <h1><%= @email %></h1>
 
   <form action="/survey/create" method="post">
-    <label>Title: <input type="text" name="title" required="required"></label>
-    <input type="submit" value="Create Survey">
+    <label><input type="text" name="title" placeholder="Title"required="required"></label>
+    <input class="button" type="submit" value="Create Survey">
   </form>
   
-  <p>Authored Surveys:</p>
+  <h3>Authored Surveys:</h3>
   <table>
     <tr>
-      <td>Title</td>
-      <td>URL</td>
-      <td>Stats</td>
+      <th>Title</th>
+      <th>URL</th>
+      <th>Stats</th>
     </tr>
   <% @authored_surveys.each do |survey| %>
     <tr>
@@ -22,10 +22,10 @@
   <% end %>
   </table>
 
-  <p>Taked Surveys:</p>
+  <h3>Taked Surveys:</h3>
   <table>
     <tr>
-      <td>Title</td>
+      <th>Title</th>
     </tr>
   <% @taken_surveys.each do |survey| %>
     <tr>
