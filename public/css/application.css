@@ -233,13 +233,13 @@ nav .login {
 
 /*********************** BRIAN *************************/
 
-<<<<<<< HEAD
-=======
+
+
 .brand a {
   text-decoration: none;
   color: white;
 }
->>>>>>> master
+
 .user-info {
   float:right;
   margin: 10px 10px 0 0;
@@ -249,13 +249,11 @@ nav .login {
   text-decoration: none;
   color: white;
 }
-<<<<<<< HEAD
 
-=======
+
 .current-user-email:hover, .brand a:hover {
   color: #2B8CBE;
 }
->>>>>>> master
 
 .logout input {
   border:none;
@@ -264,8 +262,7 @@ nav .login {
   color:#F8F3F8;
 }
 
-<<<<<<< HEAD
-=======
+
 .button {
   border:none;
   background-color: #9AC770;
@@ -314,4 +311,4 @@ nav .login {
   color: #EF8A62;
 }
 
->>>>>>> master
+
