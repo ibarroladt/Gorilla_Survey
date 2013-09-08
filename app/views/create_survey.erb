@@ -1,20 +1,28 @@
-<h1><%= @survey.title %></h1>
+<div id="create-survey">
+  
+  <h1><%= @survey.title %></h1>
 
-<form class="question-form" action="/survey/<%= @survey.id %>/question/create" method="post">
-  <label> <input class="question-field" type="text" name="question" required="required" placeholder="Type question here"></label>
-  <input class="button" type="submit" value="Create Question">
-</form>
+  <form id="create-question" class="question-form" action="/survey/<%= @survey.id %>/question/create" method="post">
+    <label> <input class="question-field" type="text" name="question" required="required" placeholder="Type question here"></label>
+    <input  class="button" type="submit" value="Create Question">
+  </form>
 
-<h3>Survey questions:</h3>
+  <h3>Survey questions:</h3>
 
-<ol class="question-list">
-  <% @survey.questions.each do |question| %>
-    <li><%= question.question %></li>
-  <% end %>
-</ol>
+  <ol id="question-list" class="question-list">
+    <% @survey.questions.each do |question| %>
+      <li><%= question.question %></li>
+    <% end %>
+  </ol>
+
+  <div id="question_form">
+
+  </div>
 
 
-<form class="survey-submit" action="/user/profile" method="get">
-  <input class="button" type="submit" value="Done">
-</form>
+  <form class="survey-submit" action="/user/profile" method="get">
+    <input class="button" type="submit" value="Complete Survey">
+  </form>
+
+</div>
 
