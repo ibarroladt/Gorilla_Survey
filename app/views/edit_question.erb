@@ -1,23 +1,24 @@
-<div class="container">
-	<form class="editq" action="/survey/<%= @question.survey.id %>/question/<%= @question.id %>/update" method="post">
-		<input type="text" name="question" value="<%= @question.question %>">
-		<input type="submit" value="Update Question">
-	</form>
+<form class="editq" action="/survey/<%= @question.survey.id %>/question/<%= @question.id %>/update" method="post">
+	<input class="editq-field" type="text" name="question" value="<%= @question.question %>">
+	<input class="button" type="submit" value="Update Question">
+</form>
 
-	<form class="editq" action="/choices/update" method="post">
-		<%@question.choices.each do |choice| %>
-			<input type="text" name=<%= "update[#{choice.id}]" %> value=<%=choice.choice %> >
-			<a href="/choice/<%= choice.id %>/delete">Delete</a><br>
-		<% end %>
-		<input type="submit" value="Update Choices">
-	</form>
+<form class="add-choice" action="/survey/<%= @question.survey.id %>/question/<%= @question.id %>/choice/add" method="post">
+  <input class="add-choice-field" type="text" name="choice" required="required">
+  <input class="button"type="submit" value="Add Choice">
+</form>
 
-	 <form class="editq" action="/survey/<%= @question.survey.id %>/question/<%= @question.id %>/choice/add" method="post">
-    <input type="text" name="choice" required="required">
-    <input type="submit" value="Add Choice">
-  </form>
 
-  <form class="editq" action="/survey/<%= @question.survey.id %>/edit" method="get">
-    <input type="submit" value="Done">
-  </form>
-</div>
+<form class="edit-choice" action="/choices/update" method="post">
+	<%@question.choices.each do |choice| %>
+		<input type="text" name=<%= "update[#{choice.id}]"%> value="<%=choice.choice%>">
+		<a class="del-choice" href="/choice/<%= choice.id %>/delete">Delete</a>
+	<% end %>
+	<input class="button" type="submit" value="Update Choices">
+</form>
+
+
+
+<form class="editq" action="/survey/<%= @question.survey.id %>/edit" method="get">
+  <input class="button" type="submit" value="Done">
+</form>
