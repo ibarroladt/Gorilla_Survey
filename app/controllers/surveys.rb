@@ -1,4 +1,6 @@
 
+require 'json'
+
 get '/survey/:id/create' do
   @survey = Survey.find(params[:id])
 
@@ -7,8 +9,11 @@ end
 
 get '/survey/:id/delete' do
   @survey = Survey.find(params[:id])
-  @survey.destroy 
-  redirect '/user/profile'
+  @survey.destroy
+  @authored_surveys = current_user.authored_surveys
+  @taken_surveys = current_user.taken_surveys
+  @email = current_user.email 
+  erb :profile, layout: false
 end
 
 get '/survey/:id/edit' do

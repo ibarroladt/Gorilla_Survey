@@ -1,3 +1,5 @@
+require 'json'
+
 get '/survey/:survey_id/question/:question_id/create' do
   @question = Question.find(params[:question_id])
   erb :create_question
@@ -5,8 +7,9 @@ end
 
 get '/survey/:survey_id/question/:question_id/delete' do
   @question = Question.find(params[:question_id])
+  @survey = @question.survey
   @question.destroy
-  redirect "/survey/#{params[:survey_id]}/edit"
+  erb :edit_survey, layout: false
 end
 
 get '/survey/:survey_id/question/:question_id/edit' do
@@ -18,7 +21,7 @@ get '/choice/:id/delete' do
   @choice = Choice.find(params[:id])
   @choice.destroy
   @question = @choice.question 
-  redirect "/survey/#{@question.survey.id}/question/#{@question.id}/edit"
+  erb :edit_question, layout: false
 end
 
 #POST ============================================================
