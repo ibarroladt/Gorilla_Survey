@@ -229,39 +229,52 @@ nav .login {
 }
 
 
-# Survey User ====================================================
+/* Survey User ====================================================*/
 
 .survey_user form {
+  width:600px;
   margin-left:auto;
   margin-right:auto;
 }
 
-.survey_user input {
-  margin: 5px auto;
-  height: 30px;
-  width: 600px;
-  border: 0px;
-  padding: 0px;
-  padding-left: 3px;
-  box-shadow: 5px 5px 5px #888888;
-}
-
 .survey_user .button {
+  padding: 0;
+  margin: 20px auto;
+  height: 30px;
   width: 600px;
   border:none;
   background-color:#9AC770; 
   color:#F8F3F8;
+  box-shadow: 5px 5px 5px #888888;
 }
 
-.survey_user p {
-  background-color: #bdbdbd;
+/*.survey_user p {
+  background-color: black;
+  color: #9AC770;
+  margin: 0;
+  display: block;
   height: 30px; 
-  padding-left: 6px; 
-
+  padding: 6px; 
+  box-shadow: 5px 5px 5px #888888;
+}
+*/
+.survey_user li.black,
+.survey_user li.white {
+  list-style: none;
+  height: 30px; 
+  padding: 12px 0 0 6px;
+  box-shadow: 5px 5px 5px #888888;
 }
 
-
-
+.survey_user li.white{
+  background-color: white;
+}
+.survey_user li.black{
+  background-color: black;
+}
+.survey_user li.black p {
+  color: #9AC770;
+}
 
 
 
