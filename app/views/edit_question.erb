@@ -12,7 +12,7 @@
 <form class="edit-choice" action="/choices/update" method="post">
 	<%@question.choices.each do |choice| %>
 		<input type="text" name=<%= "update[#{choice.id}]"%> value="<%=choice.choice%>">
-		<a class="del-choice" href="/choice/<%= choice.id %>/delete">Delete</a>
+		<a class="delete del-choice" href="/choice/<%= choice.id %>/delete">Delete</a>
 	<% end %>
 	<input class="button" type="submit" value="Update Choices">
 </form>
