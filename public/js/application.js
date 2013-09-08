@@ -1,9 +1,10 @@
-function disp_confirm(aTag) {
+function disp_confirm() {
 	var r=confirm("Are you sure you want to delete?  Press OK to continue")
 	if (r==true) {
-		$.get(aTag.attr("href"), function(response) {
-			$('.container').html(response);
-		});
+	  return true
+	}
+	else {
+		return false
 	}
 }
 
@@ -15,6 +16,21 @@ $(document).ready(function() {
   // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
   $('.delete').click(function(event) {
   	event.preventDefault();
-  	disp_confirm($(this));
+  	var del = disp_confirm();
+  	if (del == true) {
+  		$.post($(this).attr("href"), function(response) {
+			$('.container').html(response);
+			});
+  	}
+  });
+
+  $('.survey-delete').click(function(event) {
+  	event.preventDefault();
+  	var del = disp_confirm();
+  	if (del == true) {
+  		$.post($(this).attr("href"), function(response) {
+				window.location.replace(response.redirect)
+			}, "json");
+  	}
   });
 });

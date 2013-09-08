@@ -7,15 +7,6 @@ get '/survey/:id/create' do
   erb :create_survey
 end
 
-get '/survey/:id/delete' do
-  @survey = Survey.find(params[:id])
-  @survey.destroy
-  @authored_surveys = current_user.authored_surveys
-  @taken_surveys = current_user.taken_surveys
-  @email = current_user.email 
-  erb :profile, layout: false
-end
-
 get '/survey/:id/edit' do
 	@survey = Survey.find(params[:id])
 
@@ -85,6 +76,16 @@ post '/survey/submit' do
   end
 
   erb :thank_you
+end
+
+post '/survey/:id/delete' do
+  @survey = Survey.find(params[:id])
+  @survey.destroy
+  @authored_surveys = current_user.authored_surveys
+  @taken_surveys = current_user.taken_surveys
+  @email = current_user.email 
+  content_type :json
+  {redirect: "/user/profile"}.to_json
 end
 
 
