@@ -210,6 +210,10 @@ nav .login {
 
 /*********************** BRIAN *************************/
 
+.brand a {
+  text-decoration: none;
+  color: white;
+}
 .user-info {
   float:right;
   margin: 10px 10px 0 0;
@@ -219,12 +223,62 @@ nav .login {
   text-decoration: none;
   color: white;
 }
-
+.current-user-email:hover, .brand a:hover {
+  color: #2B8CBE;
+}
 
 .logout input {
   border:none;
   background-color:#EF8A62;
   float:right;
   color:#F8F3F8;
+}
+
+.button {
+  border:none;
+  background-color: #9AC770;
+  color:#F8F3F8;
+}
+
+.question-form .button, .choice-form .button, .editq .button {
+  width: 200px;
+  height:36px;
+}
+.edit-choice .button {
+  width: 200px;
+}
+
+.question-form, .choice-form, .editq, .edit-choice, .add-choice {
+  width: 620px;
+  margin: 0 auto;
+  margin-bottom: 20px
+}
+
+
+.question-field, .choice-field, .editq-field{
+  width :400px;
+  height:30px;
+}
+
+.survey-submit .button, .choice-submit .button {
+  width: 150px;
+  height:30px;
+}
+
+.question-list li {
+  margin: 5px;
+}
+
+.add-choice, .edit-choice {
+  width: 340px;
+  margin-left: 90px;
+}
+.edit-choice input {
+  margin: 5px 0;
+}
+
+.del-choice {
+  text-decoration: none;
+  color: #EF8A62;
 }
 
