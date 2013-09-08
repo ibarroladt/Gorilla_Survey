@@ -1,25 +1,27 @@
-<div class="container">
+<div class="results">
+    
   <h1><%= @survey.title %></h1>
-  <h3>Total Survey Takers : <%= @participants %></h3></h3>
-  <h3>Total Completed : <%= @completed_count %></h3></h3>
-  <% if current_user %>
-    <h5><%= current_user.email %></h5>
-  <% end %>
-  
+  <div id="totals">
+    <ul>
+      <li>Total Survey Takers : <%= @participants %></li>
+      <li>Total Completed : <%= @completed_count %></li>
+    </ul>
+  </div>
+
 
   <form>
     <% @survey.questions.each do |question| %>
     <h4><%= question.question %></h4>
-    <ul>
+    <ol type="a">
       <%question.choices.each do |choice| %>
-      <li><%= choice.choice %> (<%= (choice.num_responses.to_f / question.total_responses) * 100 %>%)</li>
+      <li><%= choice.choice %> (<%= ((choice.num_responses.to_f / question.total_responses) * 100).round(2) %>%)</li>
         <%end%>
-     </ul>
+     </ol>
     <%end%>
   </form>
 
   <form action="/user/profile" method="get">
-    <input type="submit" value="Back to Profile">
+    <input class="button" type="submit" value="Back to Profile">
   </form>
 
   <% if @survey.responses.empty? %>
