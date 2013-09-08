@@ -22,3 +22,7 @@
 <form class="editq" action="/survey/<%= @question.survey.id %>/edit" method="get">
   <input class="button" type="submit" value="Done">
 </form>
+
+<div id="dialog-confirm" title="Delete Item">
+  <p><span class="ui-icon ui-icon-alert" style="float: left; margin: 0 7px 20px 0;"></span>This item will be permanently deleted and cannot be recovered. Are you sure?</p>
+</div>
