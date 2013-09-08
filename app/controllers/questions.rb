@@ -1,24 +1,13 @@
+require 'json'
+
 get '/survey/:survey_id/question/:question_id/create' do
   @question = Question.find(params[:question_id])
   erb :create_question
 end
 
-get '/survey/:survey_id/question/:question_id/delete' do
-  @question = Question.find(params[:question_id])
-  @question.destroy
-  redirect "/survey/#{params[:survey_id]}/edit"
-end
-
 get '/survey/:survey_id/question/:question_id/edit' do
   @question = Question.find(params[:question_id])
   erb :edit_question
-end
-
-get '/choice/:id/delete' do 
-  @choice = Choice.find(params[:id])
-  @choice.destroy
-  @question = @choice.question 
-  redirect "/survey/#{@question.survey.id}/question/#{@question.id}/edit"
 end
 
 #POST ============================================================
@@ -68,4 +57,18 @@ post '/choices/update' do
     @choice.update_attributes(choice: choice)
   end
   redirect "/survey/#{@choice.question.survey.id}/question/#{@choice.question.id}/edit"
+end
+
+post '/choice/:id/delete' do 
+  @choice = Choice.find(params[:id])
+  @choice.destroy
+  @question = @choice.question 
+  erb :edit_question, layout: false
+end
+
+post '/survey/:survey_id/question/:question_id/delete' do
+  @question = Question.find(params[:question_id])
+  @survey = @question.survey
+  @question.destroy
+  erb :edit_survey, layout: false
 end

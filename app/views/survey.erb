@@ -1,24 +1,28 @@
+
 <div class="survey">
   <h1><%= @survey.title %></h1>
   <div id="instructions">
     <p>This survey belongs to you. You can delete it at any time via the 'delete' link at the bottom of the page. If no one has yet taken the survey you can edit its content but you cannot edit a survey that has logged responses.</p>
   </div>
+<!-- check edit_survey.erb for delete formatting -->
+  <!-- <h5><%= current_user.email %></h5> -->
+
   <form>
     <% @survey.questions.each do |question| %>
-    <ul><%= question.question %>
-        <%question.choices.each do |choice| %>
-          <li><input type="radio" name=<%= question.id %> value=<%=choice.choice %> ><%=choice.choice %></input></li>
-        <%end  %>
-    </ul>
+    <h4><%= question.question %></h4>
+    <%question.choices.each do |choice| %>
+    <input type="radio" name=<%= question.id %> value=<%=choice.choice %> ><%=choice.choice %></input><br>
+    <%end  %>
     <%end  %>
   </form>
 
   <form action="/user/profile" method="get">
     <input class="button" type="submit" value="Back to Profile">
   </form>
-  <a href="/survey/<%= @survey.id %>/delete">Delete This Survey</a>
-  <% if @survey.responses.empty? %>
-    <a href="/survey/<%= @survey.id %>/edit">Edit This Survey</a>
-  <% end %>
+  <div id="delete-edit">
+    <a class="survey-delete" href="/survey/<%= @survey.id %>/delete">Delete This Survey</a>
+    <% if @survey.responses.empty? %>
+      <a class="survey-edit" href="/survey/<%= @survey.id %>/edit">Edit This Survey</a>
+    <% end %>
+  </div>
 </div>
-<!-- check edit_survey.erb for delete formatting -->
