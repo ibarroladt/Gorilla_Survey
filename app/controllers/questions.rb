@@ -17,7 +17,13 @@ post '/survey/:id/question/create' do
   question = Question.create(question: question)
   survey = Survey.find(params[:id])
   survey.questions << question 
+
+  if request.xhr?
+    @question = question
+    erb :_create_question, layout: false
+  else
   redirect "/survey/#{survey.id}/question/#{question.id}/create"
+  end
 end
 
 post '/survey/:id/question/add' do
@@ -32,8 +38,14 @@ post '/survey/:survey_id/question/:question_id/choice/create' do
   choice = params[:choice]
   choice = Choice.create(choice: choice)
   question = Question.find(params[:question_id])
-  question.choices << choice 
-  redirect "/survey/#{question.survey.id}/question/#{question.id}/create"
+  question.choices << choice
+
+  if request.xhr?
+    @question = question
+    erb :_add_choice, layout: false
+  else
+    redirect "/survey/#{question.survey.id}/question/#{question.id}/create"
+  end
 end
 
 post '/survey/:survey_id/question/:question_id/update' do

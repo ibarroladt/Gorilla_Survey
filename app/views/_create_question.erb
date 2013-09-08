@@ -1,0 +1,21 @@
+
+
+<div id="question_partial">
+  <h1><%= @question.question %></h1>
+  
+  <ol id="choice-list">
+    
+  </ol>
+
+  <form id="create-choice" class="choice-form" action="/survey/<%= @question.survey.id %>/question/<%= @question.id %>/choice/create" method="post">
+    <label><input class="choice-field" type="text" name="choice" placeholder="Type choice here" required="required"></label>
+    <input class="button" type="submit" value="Add Choice">
+  </form>
+
+  <form id="finish-question" action="This is prevented" method="GET">
+    <input class="button" type="submit" value="Done with question">
+  </form>
+</div>
+
+
+
