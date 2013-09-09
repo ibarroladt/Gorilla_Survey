@@ -27,6 +27,7 @@ $(document).ready(function(){
     $(this).remove();
     $("#create-question").show();
     $("#create-question").insertBefore('.survey-submit');
+    $("#create-question .button").val("Add Another Question");
 
   });
     

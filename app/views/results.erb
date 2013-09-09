@@ -14,19 +14,28 @@
     <h4><%= question.question %></h4>
     <ol type="a">
       <%question.choices.each do |choice| %>
-
-      <li><%= choice.choice %> (<%= ((choice.num_responses.to_f / question.total_responses) * 100).round(2) %>%)</li>
-
-        <%end%>
-     </ol>
+      
+        <% if question.total_responses == 0 %>
+          <li><%= choice.choice %></li>
+        <% else %>
+          <li><%= choice.choice %> (<%= ((choice.num_responses.to_f / question.total_responses) * 100).round(1) %>%)</li>
+        <% end %>      
+      <%end%>
+    </ol>
     <%end%>
   </form>
 
+
+  <% if @survey.responses.empty? %>
+    <form class="edit-survey" action="/survey/<%= @survey.id %>/edit">
+      <input class="button" type="submit" value="Edit This Survey">
+    </form>
+  <% end %> 
+  
   <form action="/user/profile" method="get">
     <input class="button" type="submit" value="Back to Profile">
   </form>
 
-  <% if @survey.responses.empty? %>
-    <a href="/survey/<%= @survey.id %>/edit">Edit This Survey</a>
-  <% end %> 
+  
 </div>
+

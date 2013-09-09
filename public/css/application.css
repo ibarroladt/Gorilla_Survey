@@ -397,6 +397,10 @@ nav .login {
   color:#F8F3F8;
 }
 
+.logout input:hover {
+  background-color: #e8561d;
+}
+
 
 .button {
   border:none;
@@ -471,5 +475,13 @@ nav .login {
   padding:8px;
 }
 
+.edit-survey .button {
+  background-color:#70A8C7;
+  float:left;
+  margin-right:5px;
+}
 
+.edit-survey .button:hover {
+  background-color:#4284A9;
+}
 
