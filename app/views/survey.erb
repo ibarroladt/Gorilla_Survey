@@ -2,9 +2,9 @@
 <div class="survey">
   <h1><%= @survey.title %></h1>
   <div id="instructions">
-    <p>This survey belongs to you. You can delete it at any time via the 'delete' link at the bottom of the page. If no one has yet taken the survey you can edit its content but you cannot edit a survey that has logged responses.</p>
+    <p>This survey belongs to you. You can delete it at any time via the 'delete' link at the bottom of the page. If no one has yet taken the survey you can edit its contents but you cannot edit a survey that has logged responses.</p>
   </div>
-<!-- check edit_survey.erb for delete formatting -->
+  <!-- check edit_survey.erb for delete formatting -->
   <!-- <h5><%= current_user.email %></h5> -->
 
   <form>
@@ -22,7 +22,11 @@
   <div id="delete-edit">
     <a class="survey-delete" href="/survey/<%= @survey.id %>/delete">Delete This Survey</a>
     <% if @survey.responses.empty? %>
-      <a class="survey-edit" href="/survey/<%= @survey.id %>/edit">Edit This Survey</a>
+    <a class="survey-edit" href="/survey/<%= @survey.id %>/edit">Edit This Survey</a>
     <% end %>
+  </div>
+
+  <div id="dialog-confirm" title="Delete Item">
+    <p><span class="ui-icon ui-icon-alert" style="float: left; margin: 0 7px 20px 0;"></span>This item will be permanently deleted and cannot be recovered. Are you sure?</p>
   </div>
 </div>
