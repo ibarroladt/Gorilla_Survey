@@ -1,11 +1,17 @@
 get '/' do
-  # Look in app/views/index.erb
-  erb :index
+  if current_user 
+    @authored_surveys = current_user.authored_surveys
+    @taken_surveys = current_user.taken_surveys
+    @email = current_user.email
+    erb :profile
+  else
+    erb :index
+  end
 end
 
 get '/logout' do
-session.clear
-redirect ("/")
+  session.clear
+  redirect ("/")
 end
 
 
