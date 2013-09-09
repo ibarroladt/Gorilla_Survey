@@ -15,7 +15,7 @@ body {
   background-color: #E7E7E7;
 }
 nav {
-  height: 60px;
+  height: 80px;
   /*background-color: #1b4a6c;*/
   background-color: black;
 }
@@ -365,9 +365,12 @@ nav .login {
 
 /*********************** BRIAN *************************/
 
-
+.brand img {
+  float:left;
+}
 
 .brand a {
+  line-height: 2em;
   text-decoration: none;
   color: white;
 }
@@ -401,7 +404,12 @@ nav .login {
   color:#F8F3F8;
 }
 
-.question-form .button, .choice-form .button, .editq .button {
+.button:hover {
+  background-color: #73a942;
+}
+
+.question-form .button, .choice-form .button, 
+.editq .button, #finish-question .button {
   width: 200px;
   height:36px;
 }
@@ -409,7 +417,7 @@ nav .login {
   width: 200px;
 }
 
-.question-form, .choice-form, .editq, .edit-choice, .add-choice {
+.question-form, .choice-form, .editq, .edit-choice, .add-choice, .survey-submit {
   width: 620px;
   margin: 0 auto;
   margin-bottom: 20px
@@ -421,7 +429,7 @@ nav .login {
   height:30px;
 }
 
-.survey-submit .button, .choice-submit .button {
+.choice-submit .button {
   width: 150px;
   height:30px;
 }
@@ -442,5 +450,26 @@ nav .login {
   text-decoration: none;
   color: #EF8A62;
 }
+
+#finish-question {
+  margin: 5px 0;
+}
+
+.survey-submit .button {
+  width:600px;
+  height:36px;
+  background-color:#70A8C7;
+}
+
+.survey-submit .button:hover {
+  background-color: #4284a9;
+}
+
+#question_partial {
+  margin: 10px;
+  background-color: #DADADA;
+  padding:8px;
+}
+
 
 

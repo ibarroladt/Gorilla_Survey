@@ -1,7 +1,8 @@
 <div class="results">
-    
+  <canvas id="myChart" width="400" height="400"></canvas>
   <h1><%= @survey.title %></h1>
   <div id="totals">
+    
     <ul>
       <li>Total Survey Takers : <%= @participants %></li>
       <li>Total Completed : <%= @completed_count %></li>
@@ -12,10 +13,10 @@
   <form>
     <% @survey.questions.each do |question| %>
     <h4><%= question.question %></h4>
-    <ol type="a">
+    <ol id="<%=question.id%>" type="a">
       <%question.choices.each do |choice| %>
-
-      <li><%= choice.choice %> (<%= ((choice.num_responses.to_f / question.total_responses) * 100).round(2) %>%)</li>
+      
+      <li id="<%=choice.id%>"  data-lable=<%= choice.choice %> data-values=<%= ((choice.num_responses.to_f / question.total_responses) * 100).round(2) %>></li>
 
         <%end%>
      </ol>
@@ -30,3 +31,7 @@
     <a href="/survey/<%= @survey.id %>/edit">Edit This Survey</a>
   <% end %> 
 </div>
+
+
+
+

@@ -33,9 +33,13 @@ end
 
 get '/survey/:id/results' do
   @survey = Survey.find(params[:id])
+  
   @participants = Participation.where(survey_id: params[:id]).count
   @completed_count = Participation.where(survey_id: params[:id], completion: true).count
+  @questions = @survey.questions
 
+  #question => {labels => [a,b,c],results => [r1,r2,r3] }
+  # erb :results
   erb :results
 end
 
